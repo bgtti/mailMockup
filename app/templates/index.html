@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corporate Email Testing</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+  <div class="header">
+    <h1>Test Email</h1>
+    <p>This app allows you to view and test your company email templates.</p>
+  </div>
+
+  <h2>Preview an email template</h2>
+
+  <form action="{{ url_for('main.preview_email') }}" method="POST" class="form">
+    <div class="form-group">
+      <label for="type">Select email type:</label>
+      <select id="type" name="type" required>
+        {% for t in types %}
+        <option value="{{ t }}">{{ t }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button type="submit">Preview email</button>
+
+  </form>
+
+  <p class="gray"><i>--- <b>or</b> ---</i></p>
+
+  <h2>Send a test email</h2>
+  <p>Fill in the form bellow to send yourself a test email.</p>
+
+  <form id="emailForm" class="form">
+    <div class="form-group">
+      <label for="type">Select email type:</label>
+      <select id="type" name="type" required>
+        {% for t in types %}
+        <option value="{{ t }}">{{ t }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Your name here">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address: </label>
+      <input type="email" id="email" name="email" required placeholder="your@email.com">
+    </div>
+
+    <button type="submit" id="send-email">Send email</button>
+  </form>
+
+  <!-- Display success or error message -->
+  <p id="message"></p>
+
+  <div>
+    <p>When you click 'send email' you will receive an email to the address given.</p>
+  </div>
+
+</body>
+
+<!-- JAVASCRIPT -->
+
+<script>
+  const form = document.getElementById("emailForm");
+  const msg = document.getElementById("message");
+  const button = document.getElementById("send-email");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const payload = {
+      name: form.name.value,
+      email: form.email.value,
+      type: form.type.value,
+    };
+
+    button.disabled = true;
+    button.textContent = "Sending...";
+    msg.style.color = "blue";
+    msg.textContent = "Sending...";
+
+    try {
+      const res = await fetch("{{ url_for('main.get_email') }}", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        msg.style.color = "green";
+        msg.textContent = data.message;
+      } else {
+        msg.style.color = "red";
+        msg.textContent = data.error || "Something went wrong.";
+      }
+    } catch (err) {
+      msg.style.color = "red";
+      msg.textContent = "Network error.";
+    } finally {
+      // Re-enable the button after the request completes
+      button.disabled = false;
+      button.textContent = "Send Email";
+    }
+  });
+</script>
+
+</html>

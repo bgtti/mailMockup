@@ -1,0 +1,26 @@
+{% extends "emails/template_3/base.html" %}
+
+{% block title %}
+Sample Email
+{% endblock %}
+
+{% block extra_styles %}
+<style type="text/css">
+ .p_block {
+  margin-bottom: 30px;
+  margin-top: 30px;
+ }
+
+ .team_name {
+  color: #7e7e7e;
+ }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="p_block">
+ {{ email_body | safe }}
+</div>
+
+{% endblock %}

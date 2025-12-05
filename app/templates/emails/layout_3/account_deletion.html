@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <style type="text/css">
+  body {
+   margin: 0;
+   padding: 0;
+   line-height: 1;
+   font-family: 'Inter', Helvetica, Arial, sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+   color: #4B83E3;
+   text-decoration: none !important;
+  }
+
+  b {
+   font-weight: bold;
+  }
+
+  p {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   vertical-align: baseline;
+   font-size: 1em;
+   color: #1f2426;
+  }
+
+  .header {
+   border-bottom: 2px solid #EBEBEB;
+   padding-bottom: 5px;
+  }
+
+  .header>p {
+   color: #4B83E3;
+   font-size: 1.2em;
+  }
+
+  .content {
+   padding: 10px 0 10px 0;
+  }
+
+  .footer {
+   border-top: 2px solid #EBEBEB;
+   padding-top: 5px;
+  }
+
+  .footer>* {
+   color: #7e7e7e;
+   font-size: .9em;
+  }
+
+  .need_help {
+   font-weight: bold;
+  }
+
+  .font_lighter>p {
+   color: #B3B3B3;
+  }
+
+  .p_block {
+   margin-top: 30px;
+   margin-bottom: 30px;
+  }
+
+  .team_name {
+   color: #7e7e7e;
+  }
+ </style>
+</head>
+
+<body style="margin:0; padding:0; font-family:'Inter', Helvetica, Arial, sans-serif;">
+ <div>
+  <!-- Header -->
+  {% include "emails/layout_3/base/header.html" %}
+
+
+  <!-- Content -->
+
+  <div class="content">
+   <br>
+   <p>Dear {{ name }},</p>
+
+   <div class="p_block">
+    <p>
+     We’re writing to confirm that your MyCompany account has been deleted.
+    </p>
+    <p>
+     All your personal data and account information have been removed from our systems in accordance with our privacy
+     policy.
+    </p>
+    <br>
+    <p>
+     If this deletion was requested by you, no further action is required.
+    </p>
+    <p>
+     If you didn’t request this, please contact our support team immediately:
+     <a href="mailto:support@mycompany.com">support@mycompany.com</a>
+    </p>
+    <br>
+    <p>
+     Best regards,
+    </p>
+   </div>
+
+   <div class="p_block">
+    <p class="team_name"><b>---The YourCompany Team</b></p>
+   </div>
+  </div>
+
+  <!-- Footer -->
+  {% include "emails/layout_3/base/footer.html" %}
+ </div>
+</body>
+
+</html>

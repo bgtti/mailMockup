@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>{% block page_title %}MailMockup{% endblock %}</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+ <!-- NAV -->
+ <nav>
+  <p class="app-logo">MailMockup</p>
+  <ul>
+   <li>
+    <a href="/" class="{% if active_page == 'home' %}active-page{% endif %}">Home</a>
+   </li>
+   <li>
+    <a href="/about" class="{% if active_page == 'about' %}active-page{% endif %}">About</a>
+   </li>
+  </ul>
+ </nav>
+
+ <!-- Page content -->
+
+ <div class="page-content">
+  {% block page_content %}
+  {% endblock %}
+ </div>
+
+ <!-- Footer -->
+ <footer>
+  <p>2025 by</p>
+  <p>
+   <a href="https://github.com/bgtti/">
+    <ion-icon name="logo-github"></ion-icon>
+   </a>
+  </p>
+ </footer>
+
+ <!-- Ion Icon (github icon footer) See: https://ionic.io/ionicons -->
+ <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+ <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+ <!-- Add script tags in pages -->
+ {% block extra_script %}
+ {% endblock %}
+
+</body>
+
+</html>

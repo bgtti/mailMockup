@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+<!-- Page title -->
+{% block page_title %} Home {% endblock %}
+
+<!-- Page content -->
+{% block page_content %}
+
+<h2>Email template preview</h2>
+
+<form action="javascript:void(0);" class="form">
+  <div class="form-group">
+    <label for="email_type">Select email type:</label>
+    <select id="email_type" name="email_type" required>
+      {% for t in emails %}
+      <option value="{{ t }}">{{ t }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="layout_type">Select desired layout:</label>
+    <select id="layout_type" name="layout_type" required>
+      {% for t in layouts %}
+      <option value="{{ t }}">{{ t }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</form>
+
+
+<div class="subject">
+  <p><strong>Subject line:</strong> <span id="subjectText">…</span></p>
+</div>
+
+<div class="email_container" id="emailContainer">
+  <!-- Rendered email HTML will be injected here -->
+</div>
+
+<br>
+<h2>Send test email</h2>
+
+<form action="javascript:void(0);" class="form">
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" id="email" name="email" required placeholder="your@email.com">
+  </div>
+  <button type="submit" id="send-email">Send email</button>
+</form>
+
+{% endblock %}
+
+<!-- JAVASCRIPT -->
+
+{% block extra_script %}
+
+<script>
+
+  const select_email = document.getElementById('email_type');
+  const select_layout = document.getElementById('layout_type');
+
+  const subjectEl = document.getElementById('subjectText');
+  const container = document.getElementById('emailContainer');
+
+  async function loadPreview(email_type, layout_type) {
+    subjectEl.textContent = 'Loading…';
+    container.innerHTML = '<p style="color:#888;">Loading preview…</p>';
+    try {
+      const res = await fetch("{{ url_for('main.api_render_preview') }}", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email_type, layout_type
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        subjectEl.textContent = data.subject || '(no subject)';
+        container.innerHTML = data.html || '<p>No content.</p>';
+      } else {
+        subjectEl.textContent = 'Error';
+        container.innerHTML = `<p style="color:red;">${data.error || 'Failed to load preview.'}</p>`;
+      }
+    } catch {
+      subjectEl.textContent = 'Error';
+      container.innerHTML = '<p style="color:red;">Network error loading preview.</p>';
+    }
+  }
+
+  // Update instantly when the user changes the select
+  select_email.addEventListener('change', () => loadPreview(select_email.value, select_layout.value));
+  select_layout.addEventListener('change', () => loadPreview(select_email.value, select_layout.value));
+
+  // Initial load for the pre-selected type
+  document.addEventListener('DOMContentLoaded', () => {
+    loadPreview(select_email.value, select_layout.value);
+  });
+
+</script>
+
+{% endblock %}

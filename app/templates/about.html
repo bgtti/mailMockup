@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block page_title %} About · MailMockup {% endblock %}
+
+{% block page_content %}
+
+<div class="about-wrapper">
+
+  <!-- Hero -->
+  <header class="about-header">
+    <p class="about-eyebrow">About MailMockup</p>
+    <h1>Preview, test & perfect your automated emails</h1>
+    <p class="about-subtitle">
+      See exactly what your system emails look like before they go live – across templates, types, and inboxes.
+    </p>
+  </header>
+
+  <!-- How it works + Purpose -->
+  <section class="about-grid">
+    <article class="about-card">
+      <h3>How it works</h3>
+      <p>
+        Choose an email template, pick an email type (like “Welcome email” or “Password reset”),
+        and instantly see how they look together.
+      </p>
+      <p>
+        You can also send a test email to any address to preview the final design in your inbox.
+      </p>
+      <ul class="about-list">
+        <li>Select a layout template</li>
+        <li>Pick an email type to preview</li>
+        <li>Send test emails to real inboxes</li>
+      </ul>
+    </article>
+
+    <article class="about-card">
+      <h3>Purpose</h3>
+      <p>
+        This tool helps companies design and improve their automated emails.
+      </p>
+      <p>
+        Automated system emails are often inconsistent and hard to visualize. MailMockup solves this by letting users
+        preview each email type with different templates, ensuring a unified brand look.
+      </p>
+      <p>
+        Test emails can be sent to any address so teams can check real-life rendering before going live.
+      </p>
+      <p class="about-highlight">
+        No more guessing what your automated emails will look like.
+      </p>
+    </article>
+  </section>
+
+  <!-- Developers section -->
+  <section class="about-card">
+    <h3>For developers & product teams</h3>
+    <p>
+      Developers can modify and create templates at their customer’s request.
+      Before implementation in the software, customers can check and test different templates and approve both design
+      and text.
+    </p>
+    <p>
+      This simplifies communication between developers and customers by making requirements clearer
+      and facilitating approval through visual previews instead of long email threads.
+    </p>
+  </section>
+
+</div>
+
+{% endblock %}

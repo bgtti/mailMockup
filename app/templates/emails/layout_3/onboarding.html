@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <style type="text/css">
+  body {
+   margin: 0;
+   padding: 0;
+   line-height: 1;
+   font-family: 'Inter', Helvetica, Arial, sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+   color: #4B83E3;
+   text-decoration: none !important;
+  }
+
+  b {
+   font-weight: bold;
+  }
+
+  p {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   vertical-align: baseline;
+   font-size: 1em;
+   color: #1f2426;
+  }
+
+  .header {
+   border-bottom: 2px solid #EBEBEB;
+   padding-bottom: 5px;
+  }
+
+  .header>p {
+   color: #4B83E3;
+   font-size: 1.2em;
+  }
+
+  .content {
+   padding: 10px 0 10px 0;
+  }
+
+  .footer {
+   border-top: 2px solid #EBEBEB;
+   padding-top: 5px;
+  }
+
+  .footer>* {
+   color: #7e7e7e;
+   font-size: .9em;
+  }
+
+  .need_help {
+   font-weight: bold;
+  }
+
+  .font_lighter>p {
+   color: #B3B3B3;
+  }
+
+  .team_name {
+   color: #7e7e7e;
+  }
+
+  .section_title {
+   font-weight: bold;
+   margin-top: 24px;
+   margin-bottom: 6px;
+  }
+
+  .step_label {
+   font-size: 0.85em;
+   text-transform: uppercase;
+   letter-spacing: 0.05em;
+   color: #777777;
+   margin-top: 18px;
+   margin-bottom: 4px;
+  }
+
+  .step_title {
+   font-weight: bold;
+   margin-bottom: 4px;
+  }
+
+  .muted {
+   color: #7e7e7e;
+  }
+
+  .btn {
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: #4B83E3;
+   color: #ffffff !important;
+   border-radius: 4px;
+   font-size: 1em;
+   text-decoration: none !important;
+  }
+ </style>
+</head>
+
+<body style="margin:0; padding:0; font-family:'Inter', Helvetica, Arial, sans-serif;">
+ <div>
+
+  <!-- Header -->
+  {% include "emails/layout_3/base/header.html" %}
+
+  <!-- Content -->
+  <div class="content">
+   <p>Dear {{ name }},</p>
+
+   <p style="margin-top:24px;">
+    Welcome to MyCompany! We’re excited to have you on board.
+   </p>
+
+   <p style="margin-top:10px;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua.
+   </p>
+
+   <p style="margin-top:14px;">
+    <a href="{{ btn_link }}" class="btn" aria-label="Take a tour" target="_blank" role="button">
+     Take a tour
+    </a>
+   </p>
+
+   <!-- First things first -->
+   <p class="section_title">
+    First things first!
+   </p>
+   <p>
+    Let’s get you set up.
+   </p>
+
+   <!-- Step 1 -->
+   <p class="step_label">Step 1</p>
+   <p class="step_title">Do this thing</p>
+   <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+   </p>
+   <p style="margin: 5px 0;">
+    <a href="{{ btn_link }}" class="btn" aria-label="Thing 1" target="_blank" role="button">
+     Click to do thing
+    </a>
+   </p>
+
+   <!-- Step 2 -->
+   <p class="step_label">Step 2</p>
+   <p class="step_title">Do this other thing</p>
+   <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+   </p>
+   <p style="margin: 5px 0;">
+    <a href="{{ btn_link }}" class="btn" aria-label="Thing 2" target="_blank" role="button">
+     Do this too
+    </a>
+   </p>
+
+   <!-- Step 3 -->
+   <p class="step_label">Step 3</p>
+   <p class="step_title">Do this last thing</p>
+   <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+   </p>
+   <p style="margin: 5px 0;">
+    <a href="{{ btn_link }}" class="btn" aria-label="Thing 3" target="_blank" role="button">
+     Do this as well
+    </a>
+   </p>
+
+   <!-- Quick links -->
+   <p class="section_title">
+    Quick links
+   </p>
+
+   <p class="muted" style="margin-bottom:10px;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua.
+   </p>
+
+   <p>
+    • <b><a href="#">Schedule calls</a></b> – Quick and easy, your customers can reach you.
+   </p>
+   <p>
+    • <b><a href="#">Manage invoices</a></b> – Create and send to get paid.
+   </p>
+   <p>
+    • <b><a href="#">Create tasks</a></b> – Manage your todos and keep track of your progress.
+   </p>
+   <p>
+    • <b><a href="#">Documentation tracking</a></b> – Add and keep track of documents in your dashboard.
+   </p>
+
+   <!-- Community -->
+   <p class="section_title">
+    Reach out to the community!
+   </p>
+   <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua.
+   </p>
+
+   <p style="margin-top:20px;">
+    <a href="{{ btn_link }}" class="btn" aria-label="Resources" target="_blank">
+     All resources
+    </a>
+   </p>
+
+   <!-- Signature -->
+   <p style="margin-top:24px;">
+    Best regards,
+   </p>
+
+   <p class="team_name" style="margin-top:30px;">
+    <b>---The YourCompany Team</b>
+   </p>
+  </div>
+
+  <br>
+
+  <!-- Footer -->
+  {% include "emails/layout_3/base/footer.html" %}
+
+ </div>
+</body>
+
+</html>

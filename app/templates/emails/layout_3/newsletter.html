@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <title>Newsletter Email</title>
+ <style type="text/css">
+  body {
+   margin: 0;
+   padding: 0;
+   line-height: 1;
+   font-family: 'Inter', Helvetica, Arial, sans-serif;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+   color: #4B83E3;
+   text-decoration: none !important;
+  }
+
+  b {
+   font-weight: bold;
+  }
+
+  p {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   vertical-align: baseline;
+   font-size: 1em;
+   color: #1f2426;
+  }
+
+  .header {
+   border-bottom: 2px solid #EBEBEB;
+   padding-bottom: 5px;
+  }
+
+  .header>p {
+   color: #4B83E3;
+   font-size: 1.2em;
+  }
+
+  .content {
+   padding: 10px 0 10px 0;
+  }
+
+  .footer {
+   border-top: 2px solid #EBEBEB;
+   padding-top: 5px;
+  }
+
+  .footer>* {
+   color: #7e7e7e;
+   font-size: .9em;
+  }
+
+  .need_help {
+   font-weight: bold;
+  }
+
+  .font_lighter>p {
+   color: #B3B3B3;
+  }
+
+  .team_name {
+   color: #7e7e7e;
+  }
+
+  .section_title {
+   font-weight: bold;
+   margin-top: 24px;
+   margin-bottom: 6px;
+  }
+
+  .muted {
+   color: #7e7e7e;
+  }
+
+  .btn {
+   display: inline-block;
+   padding: 10px 20px;
+   background-color: #4B83E3;
+   color: #ffffff !important;
+   border-radius: 4px;
+   font-size: 1em;
+   text-decoration: none !important;
+  }
+
+  .hero_image {
+   display: block;
+   max-width: 100%;
+   height: auto;
+   margin: 10px 0;
+  }
+
+  .highlight {
+   margin-top: 14px;
+  }
+
+  .highlight img {
+   display: block;
+   max-width: 100%;
+   height: auto;
+   margin-bottom: 6px;
+  }
+
+  .highlight_title {
+   font-weight: bold;
+   margin-bottom: 4px;
+  }
+ </style>
+</head>
+
+<body style="margin:0; padding:0; font-family:'Inter', Helvetica, Arial, sans-serif;">
+ <div>
+
+  <!-- Header -->
+  {% include "emails/layout_3/base/header.html" %}
+
+  <!-- Content -->
+  <div class="content">
+   <!-- Intro -->
+   <p class="section_title" style="margin-top:0;">
+    Newsletter
+   </p>
+
+   <p style="margin-bottom:6px;">
+    A lot is going on!
+   </p>
+
+   <p class="muted" style="margin-bottom:10px;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua.
+   </p>
+
+   <p>
+    <a href="{{ btn_link }}" class="btn" aria-label="Find out more" target="_blank">
+     Find out
+    </a>
+   </p>
+
+   <!-- What's new + big hero image -->
+   <p class="section_title">
+    What’s new?
+   </p>
+
+   <img src="https://picsum.photos/id/9/560/300" alt="Main update image" class="hero_image">
+
+   <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.
+   </p>
+
+   <!-- Highlights -->
+   <p class="section_title">
+    Highlights
+   </p>
+
+   <!-- Item 1 -->
+   <div class="highlight">
+    <img src="https://picsum.photos/id/1/560/300" alt="Update 1">
+    <p class="highlight_title">New feature launch</p>
+    <p>
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+     labore et dolore magna aliqua.
+    </p>
+   </div>
+
+   <!-- Item 2 -->
+   <div class="highlight">
+    <img src="https://picsum.photos/id/7/560/300" alt="Update 2">
+    <p class="highlight_title">Behind the scenes</p>
+    <p>
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+     labore et dolore magna aliqua.
+    </p>
+   </div>
+
+   <!-- Item 3 -->
+   <div class="highlight">
+    <img src="https://picsum.photos/id/4/560/300" alt="Update 3">
+    <p class="highlight_title">Coming soon</p>
+    <p>
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+     labore et dolore magna aliqua.
+    </p>
+   </div>
+
+   <!-- Concluding block -->
+   <p class="section_title">
+    We want more!
+   </p>
+   <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.
+   </p>
+
+   <p style="margin-top: 10px;">
+    <a href="{{ btn_link }}" class="btn" aria-label="Get the product" target="_blank">
+     Get it now!
+    </a>
+   </p>
+
+   <!-- Unsubscribe -->
+   <p class="muted" style="margin-top:24px;">
+    You are seeing this email because you have subscribed to MyCompany's newsletter.<br>
+    <b>Want to unsubscribe? Click</b> <a href="#">here</a>.
+   </p>
+  </div>
+
+  <br>
+
+  <!-- Footer -->
+  {% include "emails/layout_3/base/footer.html" %}
+
+ </div>
+</body>
+
+</html>

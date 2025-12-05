@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="x-apple-disable-message-reformatting">
+  <style type="text/css">
+    body {
+      margin: 0;
+      padding: 0;
+      line-height: 1;
+      font-family: 'Inter', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: #4B83E3;
+      text-decoration: none !important;
+    }
+
+    b {
+      font-weight: bold;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      vertical-align: baseline;
+      font-size: 1em;
+      color: #1f2426;
+    }
+
+    .header {
+      border-bottom: 2px solid #EBEBEB;
+      padding-bottom: 5px;
+    }
+
+    .header>p {
+      color: #4B83E3;
+      font-size: 1.2em;
+    }
+
+    .content {
+      padding: 10px 0 10px 0;
+    }
+
+    .footer {
+      border-top: 2px solid #EBEBEB;
+      padding-top: 5px;
+    }
+
+    .footer>* {
+      color: #7e7e7e;
+      font-size: .9em;
+    }
+
+    .need_help {
+      font-weight: bold;
+    }
+
+    .font_lighter>p {
+      color: #B3B3B3;
+    }
+  </style>
+</head>
+
+<body style="margin:0; padding:0; font-family:'Inter', Helvetica, Arial, sans-serif;">
+  <div>
+    <!-- Header -->
+    {% include "emails/layout_3/base/header.html" %}
+
+    <!-- Content -->
+
+    <div class="content">
+      <p>Dear {{name}},</p>
+      <br>
+      <p>
+        I wanted to personally welcome you to Corporate Email Template Viewer!<br>
+        This project is meant to help you plan and visualize automated emails to use in your software project!
+      </p>
+      <br>
+      <p>
+        Automated emails are a must and these should properly represent your brand and feel to the customer!<br>
+        You can adapt the Jinja template and visualize your email before incorporating it into your business!
+      </p>
+    </div>
+    <br>
+    <p>Best regards,</p>
+    <br>
+    <p>-- The MailMockup Team</p>
+    <br>
+
+    <!-- Footer -->
+    {% include "emails/layout_3/base/footer.html" %}
+
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Email</title>
+  <style type="text/css">
+    /* Basic resets for email clients */
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    img {
+      border: 0;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    a {
+      color: #018A99;
+      text-decoration: none;
+    }
+
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    .main {
+      width: 100%;
+      max-width: 600px;
+    }
+  </style>
+</head>
+
+<body style="margin:0; padding:0; background-color:#F5F5F5;">
+  <center style="width:100%; background-color:#F5F5F5;">
+    <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center" style="padding:20px 10px;">
+
+          <table role="presentation" class="main" width="100%" cellpadding="0" cellspacing="0"
+            style="background-color:#FFFFFF; border-radius:4px; overflow:hidden;">
+
+            <!-- Header -->
+            {% include "emails/layout_1/base/header.html" %}
+
+            <!-- Content -->
+            <tr>
+              <td
+                style="padding:16px 20px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.5; color:#1F2426;">
+
+                <p style="margin:0 0 12px 0;">
+                  Dear {{name}},
+                </p>
+
+                <p style="margin:0 0 12px 0;">
+                  I wanted to personally welcome you to Corporate Email Template Viewer!<br>
+                  This project is meant to help you plan and visualize automated emails to use in your software project!
+                </p>
+
+                <p style="margin:0 0 12px 0;">
+                  Automated emails are a must and these should properly represent your brand and feel to the
+                  customer!<br>
+                  You can adapt the Jinja template and visualize your email before incorporating it into your business!
+                </p>
+
+                <p style="margin:0 0 12px 0;">
+                  Best regards,
+                </p>
+
+                <p style="margin:0 0 12px 0;">
+                  -- The MailMockup Team
+                </p>
+              </td>
+
+            </tr>
+
+            <!-- Footer -->
+            {% include "emails/layout_1/base/footer.html" %}
+
+          </table>
+
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+
+</html>

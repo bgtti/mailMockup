@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Email Preview</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+ <div class="header">
+  <h1>Email Preview</h1>
+  <p><a href="{{ url_for('main.home') }}">← Return to home.</a></p>
+ </div>
+
+ <form id="previewForm" method="POST" class="previewEmailForm">
+  <div>
+   <label for="type">Change email type:</label>
+   <select id="type" name="type" required>
+    {% for t in types %}
+    <option value="{{ t }}" {{ 'selected' if t==selected_type else '' }}>{{ t }}</option>
+    {% endfor %}
+   </select>
+  </div>
+  <button type="submit">Preview</button>
+ </form>
+
+ <div class="subject">
+  <p><strong>Subject line:</strong> <span id="subjectText">…</span></p>
+ </div>
+
+ <div class="email_container" id="emailContainer">
+  <!-- Rendered email HTML will be injected here -->
+ </div>
+
+ <div class="sample" style="font-family: serif;">
+  This is SERIF
+ </div>
+
+ <div class="sample" style="font-family: sans-serif;">
+  This is SANS-SERIF
+ </div>
+
+ <div class="sample" style="font-family: monospace;">
+  This is MONOSPACE
+ </div>
+
+ <div class="sample" style="font-family: cursive;">
+  This is CURSIVE
+ </div>
+
+ <div class="sample" style="font-family: fantasy;">
+  This is FANTASY
+ </div>
+
+ <div class="sample" style="font-family: system-ui;">
+  This is SYSTEM-UI
+ </div>
+
+ <script>
+  const form = document.getElementById('previewForm');
+  const select = document.getElementById('type');
+  const subjectEl = document.getElementById('subjectText');
+  const container = document.getElementById('emailContainer');
+
+  async function loadPreview(type) {
+   subjectEl.textContent = 'Loading…';
+   container.innerHTML = '<p style="color:#888;">Loading preview…</p>';
+   try {
+    const res = await fetch("{{ url_for('main.api_render_preview_template') }}", {
+     method: "POST",
+     headers: { "Content-Type": "application/json" },
+     body: JSON.stringify({
+      type
+     }),
+    });
+    const data = await res.json();
+    if (data.success) {
+     subjectEl.textContent = data.subject || '(no subject)';
+     container.innerHTML = data.html || '<p>No content.</p>';
+    } else {
+     subjectEl.textContent = 'Error';
+     container.innerHTML = `<p style="color:red;">${data.error || 'Failed to load preview.'}</p>`;
+    }
+   } catch {
+    subjectEl.textContent = 'Error';
+    container.innerHTML = '<p style="color:red;">Network error loading preview.</p>';
+   }
+  }
+
+  // Prevent full-page reload on submit; use JS instead
+  form.addEventListener('submit', (e) => {
+   e.preventDefault();
+   loadPreview(select.value);
+  });
+
+  // Also update instantly when the user changes the select
+  select.addEventListener('change', () => loadPreview(select.value));
+
+  // Initial load for the pre-selected type
+  document.addEventListener('DOMContentLoaded', () => {
+   loadPreview(select.value);
+  });
+ </script>
+
+</body>
+
+</html>

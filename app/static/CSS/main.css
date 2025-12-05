@@ -1,0 +1,339 @@
+/* CSS for Home and About pages */
+
+:root {
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --yellow: #FEAF53;
+  --blue-deep: #1F488D;
+  --blue-aquamarine: #018A99;
+  --blue-aquahover: #019CAD;
+  --blue-aqualight: #E7F5F6;
+  --gray-light: rgb(214, 224, 225);
+  --gray-demi: rgb(133, 141, 142);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+input,
+select {
+  padding: 0.2rem 0.3rem;
+  font-size: 1rem;
+  border: none;
+  /* border: 1px solid var(--gray-light); */
+  box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+  border-radius: 4px;
+}
+
+select,
+select option {
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+}
+
+select:hover,
+select:focus,
+select:active {
+  outline: none;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+button {
+  font-size: 1rem;
+  padding: 0.3rem 0.1rem;
+  background: var(--blue-aquamarine);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: var(--blue-aquahover);
+}
+
+button:disabled {
+  background-color: var(--gray-demi);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Layout */
+nav,
+.page-content,
+footer {
+  padding: 10px;
+}
+
+nav,
+footer {
+  flex: 0 0 auto;
+}
+
+.page-content {
+  flex: 1 0 auto;
+}
+
+
+/* Nav bar */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-logo {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: var(--blue-deep);
+  padding-right: 5px;
+  border-right: 2px solid var(--gray-light);
+}
+
+nav>ul {
+  display: flex;
+  gap: 10px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav>ul>li>a {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: var(--blue-aquamarine);
+}
+
+nav>ul>li>a:hover {
+  font-weight: bold;
+  color: var(--yellow);
+}
+
+.active-page {
+  font-weight: bold;
+}
+
+
+/* Footer */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer>p {
+  color: var(--blue-deep);
+}
+
+footer ion-icon {
+  font-size: 20px;
+  padding-left: 5px;
+  color: var(--blue-deep);
+}
+
+footer ion-icon:hover {
+  transform: scale(2) rotateZ(360deg);
+}
+
+
+/* Home Page */
+
+.form {
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 10px 10px;
+  align-items: center;
+}
+
+.form-group {
+  display: contents;
+}
+
+.form label {
+  text-align: left;
+  white-space: nowrap;
+}
+
+@media (min-width: 800px) {
+
+  .form select {
+    width: 200px;
+  }
+
+  .form input {
+    width: 300px;
+  }
+}
+
+.subject {
+  border-radius: 5px;
+  padding: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+}
+
+.email_container {
+  border-radius: 5px;
+  padding: 1rem;
+  background: #fff;
+  margin-top: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
+}
+
+
+/* About page */
+
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* About: Hero / header block */
+.about-header {
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  background: var(--blue-aqualight);
+  color: var(--blue-aquamarine);
+  box-shadow:
+    rgba(15, 23, 42, 0.12) 0px 10px 30px -10px;
+}
+
+.about-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin-bottom: 0.25rem;
+}
+
+.about-header h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+  color: var(--blue-deep);
+}
+
+.about-subtitle {
+  font-size: 0.95rem;
+  max-width: 34rem;
+  opacity: 0.95;
+}
+
+/* About: Grid for sections */
+.about-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 800px) {
+  .about-grid {
+    grid-template-columns: 2fr 1.5fr;
+    align-items: flex-start;
+  }
+}
+
+/* About: Reusable cards */
+.about-card {
+  background: #ffffff;
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--gray-light);
+  box-shadow:
+    rgba(15, 23, 42, 0.03) 0px 10px 30px -15px;
+}
+
+.about-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--blue-deep);
+}
+
+.about-card p+p {
+  margin-top: 0.5rem;
+}
+
+/* About: Simple list with checkmarks */
+.about-list {
+  margin-top: 0.75rem;
+  padding-left: 1.2rem;
+}
+
+.about-list li {
+  margin-bottom: 0.3rem;
+  position: relative;
+  list-style: none;
+}
+
+.about-list li::before {
+  content: "✔";
+  position: absolute;
+  left: -1.1rem;
+  color: var(--blue-aquamarine);
+  font-size: 0.8rem;
+}
+
+/* About: Highlight line */
+.about-highlight {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 3px solid var(--yellow);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: var(--blue-aqualight);
+  opacity: 0.9;
+  font-size: 0.9rem;
+  color: var(--blue-aquamarine);
+}
+
+
+
+
+
+
+/* Email Preview */
+
+/* .previewEmailForm {
+ max-width: 400px;
+ margin-top: 1rem;
+ display: flex;
+ gap: 0.75rem;
+ margin-bottom: 15px;
+}
+
+.previewEmailForm>div>select {
+ padding: 0.1rem;
+}
+
+.previewEmailForm>button {
+ padding: 0.1rem 1rem;
+} */
+
+/* .gray {
+ color: var(--gray-demi);
+ margin-top: 1rem;
+} */

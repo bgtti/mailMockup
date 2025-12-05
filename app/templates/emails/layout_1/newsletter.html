@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter Email</title>
+  <style type="text/css">
+    /* Basic resets for email clients */
+    body {
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    table {
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    img {
+      border: 0;
+      line-height: 100%;
+      outline: none;
+      text-decoration: none;
+      -ms-interpolation-mode: bicubic;
+    }
+
+    a {
+      color: #018A99;
+      text-decoration: none;
+    }
+
+    .wrapper {
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    .main {
+      width: 100%;
+      max-width: 600px;
+    }
+  </style>
+</head>
+
+<body style="margin:0; padding:0; background-color:#F5F5F5;">
+  <center style="width:100%; background-color:#F5F5F5;">
+    <table role="presentation" class="wrapper" width="100%" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center" style="padding:20px 10px;">
+
+          <table role="presentation" class="main" width="100%" cellpadding="0" cellspacing="0"
+            style="background-color:#FFFFFF; border-radius:4px; overflow:hidden;">
+
+            <!-- Header -->
+            {% include "emails/layout_1/base/header.html" %}
+
+            <!-- Intro block -->
+            <tr>
+              <td
+                style="padding:20px 24px 12px 24px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.5; color:#1F2426; text-align:center;">
+                <p style="margin:0 0 8px 0; font-size:20px; font-weight:bold;">
+                  Newsletter
+                </p>
+
+                <p style="margin:0 0 8px 0; font-size:16px;">
+                  A lot is going on!
+                </p>
+
+                <p style="margin:0 0 12px 0; font-size:14px;">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua.
+                </p>
+
+                <p style="margin: 10px 0 0 0;">
+                  <a aria-label="Find out more" href="{{ btn_link }}" class="ebutton" role="button" target="_blank"
+                    style="
+                      display:inline-block;
+                      padding:8px 16px;
+                      background-color:#1F488D;
+                      color:#ffffff !important;
+                      border-radius:4px;
+                      font-size:14px;
+                      font-weight:bold;
+                      text-decoration:none !important;
+                    ">
+                    Find out
+                  </a>
+                </p>
+              </td>
+            </tr>
+
+            <!-- What's new + big hero image -->
+            <tr>
+              <td
+                style="padding:16px 24px 20px 24px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.5; color:#1F2426;">
+                <p style="margin:0 0 10px 0; font-size:16px; font-weight:bold;">
+                  What’s new?
+                </p>
+
+                <!-- Big image (hero) -->
+                <img src="https://picsum.photos/id/9/560/300" width="560"
+                  style="display:block; width:100%; max-width:560px; height:auto; margin:0 0 10px 0;"
+                  alt="Main update image">
+
+                <p style="margin:0;">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat.
+                </p>
+              </td>
+            </tr>
+
+            <!-- 3 smaller image + text items -->
+            <tr>
+              <td
+                style="padding:0 24px 24px 24px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.5; color:#1F2426;">
+
+                <p style="margin:0 0 10px 0; font-size:16px; font-weight:bold;">
+                  Highlights
+                </p>
+
+                <!-- Nested table for the 3 rows -->
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+
+                  <!-- Item 1 -->
+                  <tr>
+                    <td width="120" valign="top" style="padding:0 10px 0 0;">
+                      <img src="https://picsum.photos/id/1/120/80" width="120" height="80"
+                        style="display:block; width:120px; height:80px;" alt="Update 1">
+                    </td>
+                    <td valign="top" style="font-size:14px; line-height:1.5; color:#1F2426;">
+                      <p style="margin:0 0 4px 0; font-weight:bold;">New feature launch</p>
+                      <p style="margin:0;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!-- Spacing between items -->
+                  <tr>
+                    <td colspan="2" style="height:12px; font-size:1px; line-height:1px;">
+                      &nbsp;
+                    </td>
+                  </tr>
+
+                  <!-- Item 2 -->
+                  <tr>
+                    <td width="120" valign="top" style="padding:0 10px 0 0;">
+                      <img src="https://picsum.photos/id/7/120/80" width="120" height="80"
+                        style="display:block; width:120px; height:80px;" alt="Update 2">
+                    </td>
+                    <td valign="top" style="font-size:14px; line-height:1.5; color:#1F2426;">
+                      <p style="margin:0 0 4px 0; font-weight:bold;">Behind the scenes</p>
+                      <p style="margin:0;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                      </p>
+                    </td>
+                  </tr>
+
+                  <!-- Spacing between items -->
+                  <tr>
+                    <td colspan="2" style="height:12px; font-size:1px; line-height:1px;">
+                      &nbsp;
+                    </td>
+                  </tr>
+
+                  <!-- Item 3 -->
+                  <tr>
+                    <td width="120" valign="top" style="padding:0 10px 0 0;">
+                      <img src="https://picsum.photos/id/4/120/80" width="120" height="80"
+                        style="display:block; width:120px; height:80px;" alt="Update 3">
+                    </td>
+                    <td valign="top" style="font-size:14px; line-height:1.5; color:#1F2426;">
+                      <p style="margin:0 0 4px 0; font-weight:bold;">Coming soon</p>
+                      <p style="margin:0;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.
+                      </p>
+                    </td>
+                  </tr>
+
+                </table>
+              </td>
+            </tr>
+
+            <!-- Concluding block -->
+            <tr>
+              <td
+                style="padding:16px 24px 20px 24px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.5; color:#1F2426;">
+                <p style="margin:0 0 10px 0; font-size:16px; font-weight:bold;">
+                  We want more!
+                </p>
+
+                <p style="margin:0;">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat.
+                </p>
+              </td>
+            </tr>
+
+            <td
+              style="padding:20px 24px 12px 24px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.5; color:#1F2426; text-align:center;">
+              <p style="margin: 10px 0 0 0;">
+                <a aria-label="Get the product" href="{{ btn_link }}" class="ebutton" role="button" target="_blank"
+                  style="
+                                                    display:inline-block;
+                                                    padding:8px 16px;
+                                                    background-color:#1F488D;
+                                                    color:#ffffff !important;
+                                                    border-radius:4px;
+                                                    font-size:14px;
+                                                    font-weight:bold;
+                                                    text-decoration:none !important;
+                                                  ">
+                  Get it now!
+                </a>
+              </p>
+            </td>
+
+            <!-- Unsubscribe -->
+            <tr>
+              <td
+                style="padding:16px 24px 20px 24px; font-family:Arial, Helvetica, sans-serif; font-size:14px; line-height:1.5; color:#7E7E7E;">
+                <p style="margin:0;">
+                  You are seeing this email because you have subscribed to MyCompany's newsletter.
+                  <br>
+                  <b>Want to unsubscribe? Click</b>
+                  <a href="#">here</a>.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            {% include "emails/layout_1/base/footer.html" %}
+
+          </table>
+
+        </td>
+      </tr>
+    </table>
+  </center>
+</body>
+
+</html>
