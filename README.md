@@ -1,3 +1,4 @@
+git remote add origin https://github.com/bgtti/mailMockup.git
 
 # MailMockup
 
