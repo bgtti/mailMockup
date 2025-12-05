@@ -39,13 +39,16 @@
 <br>
 <h2>Send test email</h2>
 
-<form action="javascript:void(0);" class="form">
+<form action="javascript:void(0);" class="form" id="send-email-form">
   <div class="form-group">
     <label for="email">Email address:</label>
     <input type="email" id="email" name="email" required placeholder="your@email.com">
   </div>
   <button type="submit" id="send-email">Send email</button>
 </form>
+
+<!-- Display success or error message -->
+<p id="message"></p>
 
 {% endblock %}
 
@@ -93,6 +96,48 @@
   // Initial load for the pre-selected type
   document.addEventListener('DOMContentLoaded', () => {
     loadPreview(select_email.value, select_layout.value);
+  });
+
+  // Send email logic
+  const sendEmailForm = document.getElementById('send-email-form');
+  const emailInput = document.getElementById('email');
+  const sendButton = document.getElementById('send-email');
+  const messageEl = document.getElementById('message');
+
+  sendEmailForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    // Reset message state
+    messageEl.textContent = 'Sending…';
+    messageEl.style.color = '#018A99'; // neutral-ish while sending
+    sendButton.disabled = true;
+
+    try {
+      const res = await fetch("{{ url_for('main.api_send_email') }}", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email_type: select_email.value,
+          layout_type: select_layout.value,
+          email: emailInput.value,
+        }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && data.success) {
+        messageEl.textContent = data.message || 'The email was sent successfully.';
+        messageEl.style.color = '#018A99';
+      } else {
+        messageEl.textContent = data.error || 'Unable to send email.';
+        messageEl.style.color = '#c30010';
+      }
+    } catch (e) {
+      messageEl.textContent = 'Network error: could not send email.';
+      messageEl.style.color = '#c30010';
+    } finally {
+      sendButton.disabled = false;
+    }
   });
 
 </script>
