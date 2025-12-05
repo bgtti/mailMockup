@@ -1,3 +1,10 @@
+"""
+EMAILS is a dictionary of email types. 
+Each contain a subject and the name of the html file associated with it. 
+In the "content" value one could store extra information that could be inserted into the jinja template at runtime (in case one template is being used for multiple email types).
+Make sure you have a template named appropriately under templates/emails/layout_X.
+"""
+
 EMAILS = {
  "Welcome":{
   "subject": "Welcome to MyCompany!",
@@ -41,9 +48,9 @@ EMAILS = {
  },
 }
 
-#TODO:
+#TODO ideas:
 """
-Possible additions to the above list
+Possible additions to the above list:
 
 - invoice issued
 - payment successfull

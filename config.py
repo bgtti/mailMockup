@@ -1,6 +1,8 @@
+"""
+config.py is the configuration file used in run.py, the entry point of the app.
+"""
 import os
 from dotenv import load_dotenv
-# from utils.print_to_terminal import print_to_terminal
 
 load_dotenv()
 
@@ -9,7 +11,7 @@ class BaseConfig:
     SECRET_KEY = "uudiiiduudiiiah"
     
     # Flask-Mail Config
-    MAIL_SERVER = "smtp.gmail.com" # consider using mailtrap for testing?
+    MAIL_SERVER = "smtp.gmail.com" # consider using mailtrap for testing - not implemented.
     MAIL_PORT = 465
     MAIL_USERNAME = os.getenv("EMAIL_ADDRESS", "sample@email.com") 
     MAIL_PASSWORD = os.getenv("EMAIL_PASSWORD", "tralala") 

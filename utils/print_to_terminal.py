@@ -1,8 +1,5 @@
 """
-**ABOUT THIS FILE**
-
 print_to_terminal.py contains the function **print_to_terminal** which prints messages to the terminal in different colours. Can be helpful to warn of errors during development.
-
 """
 from colorama import Fore
 

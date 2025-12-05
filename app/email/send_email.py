@@ -1,7 +1,7 @@
 """
-**ABOUT THIS FILE**
+app/email/send_email.py contains a helper function that sends the requested template to the email address given by the client.
 
-auth/email_helpers.py contains helper functions that send auth-related email to users.
+Make sure you have the correct email configuration under config.py and correct credentials in the app/__init__.py file to be able to use this functionality.
 """
 from flask import render_template, render_template_string
 from flask_mail import Message as EmailMessage

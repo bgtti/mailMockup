@@ -1,7 +1,5 @@
 """
-**ABOUT THIS FILE**
-
-Run this script to generate a tree.text file that excludes cache and other automatically generated directories.
+tree_file_generator.py contains a script that can be run to generate a tree.text file that excludes cache and other automatically generated directories.
 
 *Ps: this script has been tested in a windows terminal. Might need adjustments if you plan to run it from other operating systems.*
 

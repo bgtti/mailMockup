@@ -1,3 +1,9 @@
+"""
+Flask extensions and Create App function.
+
+Make sure you have a .env file with the correct email credentials to be able to use the email sending feature.
+"""
+
 from flask import Flask
 import os
 
@@ -32,7 +38,6 @@ def create_app(config_class):
     # Blueprints
     from .routes import main
     app.register_blueprint(main)
-    # app.register_blueprint(auth, url_prefix='/api/auth')
 
     @app.route('/test')
     def test_page():
