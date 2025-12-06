@@ -149,8 +149,8 @@ To add a new layout:
 
 That's it!
 
-⚠️ Note:
-HTML/CSS support varies widely across email clients.
+⚠️ Note: HTML/CSS support varies widely across email clients.
+
 This project includes a guide that may help: <a href="app/templates/ABOUT_HTML_IN_EMAILS.md">app/templates/ABOUT_HTML_IN_EMAILS.md</a>
 
 ### Interface
@@ -161,7 +161,7 @@ The client interface is straightforward:
 
 The About page contains a simple explanation of the project.
 
-<img src="app/static/mailMockup_interface.jpg" width="200px" alt="Preview of interface">
+<img src="app/static/mailMockup_interface.jpg" width="500px" alt="Preview of interface">
 
 <div align="right">[ <a href="#table-of-contents">↑ to top ↑</a> ]</div>
 
