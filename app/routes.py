@@ -100,6 +100,6 @@ def api_send_email():
         print_to_terminal(f"Error sending email: {e}", "RED")
         return jsonify({"success": False, "error": "Unable to send email."}), 500
 
-    success = f"The email (type: {email_type}, layout: {layout_type}) was sent to you! Check your inbox!"
+    success = f"The email type {email_type}, layout {layout_type} was sent to you! Check your inbox!"
 
     return jsonify({"success": True, "message": success})

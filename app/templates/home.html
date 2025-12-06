@@ -89,9 +89,22 @@
     }
   }
 
+  // Clear success/error message function
+  function clearMessage() {
+    messageEl.textContent = "";
+  }
+
   // Update instantly when the user changes the select
-  select_email.addEventListener('change', () => loadPreview(select_email.value, select_layout.value));
-  select_layout.addEventListener('change', () => loadPreview(select_email.value, select_layout.value));
+  select_email.addEventListener('change', () => {
+    clearMessage();
+    loadPreview(select_email.value, select_layout.value);
+  });
+
+  select_layout.addEventListener('change', () => {
+    clearMessage();
+    loadPreview(select_email.value, select_layout.value);
+  });
+
 
   // Initial load for the pre-selected type
   document.addEventListener('DOMContentLoaded', () => {
